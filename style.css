@@ -1,0 +1,227 @@
+/*Se quiser usar a fonte online*/
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+/*Vou usar offline pq o local que eu vou usar não tem internet*/
+@font-face {
+    font-family: 'Press Start 2P';
+    src: url('PressStart2P-Regular.ttf') format('truetype');
+    /* FUnciona em Chrome 4+, Firefox 3.5, Opera 10+, Safari 3—5 */
+    /* url('PressStart2P-Regular.woff') format('woff'),/* Funciona em Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+
+body, #content {
+    font-family: 'Press Start 2P', cursive;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    background-color: #f0f8ff;
+    color: #333;
+    text-align: center;
+}
+
+.container {
+    background-color: #fff;
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    max-width: 600px;
+    width: 90%;
+    border: 4px solid #f6a6c2;
+}
+
+/* --- ESTILOS DAS ABAS PRINCIPAIS --- */
+.tab-navigation {
+    display: flex;
+    border-bottom: 2px solid #eee;
+    margin-bottom: 1.5rem;
+}
+
+.tab-button {
+    font-family: 'Press Start 2P', cursive;
+    background-color: #f8f9fa;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    font-size: 0.8rem;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    color: #6c757d;
+    border: 2px solid transparent;
+    flex-grow: 1;
+}
+
+.tab-button.active {
+    background-color: #fff;
+    color: #d63384;
+    border-color: #eee;
+    border-bottom-color: #fff;
+    position: relative;
+    top: 2px;
+}
+
+.tab-button:disabled {
+    color: #ccc;
+    background-color: #f8f9fa;
+    cursor: not-allowed;
+}
+
+/* --- ESTILOS DAS SUB-ABAS (FASE 1) --- */
+.question-tab-navigation {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+    border-radius: 8px;
+    background-color: #e9ecef;
+    padding: 5px;
+}
+
+.question-tab {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 0.7rem;
+    border: none;
+    background: none;
+    padding: 8px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    color: #6c757d;
+    flex-grow: 1;
+}
+
+.question-tab.active {
+    background-color: #fff;
+    color: #0d6efd;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.question-tab:disabled {
+    color: #adb5bd;
+    cursor: not-allowed;
+}
+
+/* --- ESTILOS DOS CONTEÚDOS --- */
+.phase-content,
+.question-content {
+    display: none;
+}
+
+.phase-content.active,
+.question-content.active {
+    display: block;
+    animation: fadeIn 0.5s;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+h1,
+h2 {
+    color: #d63384;
+    margin-bottom: 1.5rem;
+}
+
+p {
+    line-height: 1.6;
+    font-size: 0.9rem;
+    margin-bottom: 1.5rem;
+}
+
+button {
+    font-family: 'Press Start 2P', cursive;
+    padding: 12px 24px;
+    font-size: 1rem;
+    background-color: #5cb85c;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: transform 0.2s ease, background-color 0.2s ease;
+    margin: 5px;
+}
+
+#retry-button {
+    background-color: #ffc107;
+    color: #333;
+}
+
+button:hover:not(:disabled) {
+    transform: scale(1.05);
+}
+
+button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.question {
+    margin-top: 1rem;
+    font-weight: bold;
+}
+
+.answers button {
+    background-color: #0dcaf0;
+}
+
+.answers button:hover:not(:disabled) {
+    background-color: #0aa2c0;
+}
+
+.feedback {
+    margin-top: 1rem;
+    font-size: 1.2rem;
+    min-height: 30px;
+}
+
+.heart {
+    color: #dc3545;
+    animation: pulse 0.5s infinite alternate;
+}
+
+@keyframes pulse {
+    to {
+        transform: scale(1.3);
+    }
+}
+
+#gameCanvas {
+    border: 2px solid #333;
+    background-color: #87CEEB;
+    margin: 1.5rem auto;
+    display: block;
+}
+
+#password-input {
+    font-family: 'Press Start 2P', cursive;
+    padding: 10px;
+    border-radius: 8px;
+    border: 2px solid #ccc;
+    margin-right: 10px;
+    font-size: 1rem;
+}
+
+#yes-button {
+    background-color: #dc3545;
+}
+
+.hidden {
+    display: none;
+}
+
+#confetti-canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 9999;
+}
